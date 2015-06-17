@@ -1,0 +1,36 @@
+\documentclass{article}
+
+\begin{document}
+\SweaveOpts{concordance=TRUE}
+
+load library:
+
+<<library>>=
+library(ggplot2)
+@
+
+just a test to plot points showing hwy
+<<Plotofpoint, fig=TRUE>>=
+ggplot(mpg, aes(x=cyl, y=hwy)) + 
+         geom_point()
+@
+
+smooth plot of hwy
+<<Plotsmootht, fig=TRUE>>=
+ggplot(mpg, aes(x=cyl, y=hwy)) + 
+  geom_smooth()
+@
+
+Cylder plotted against hwy
+<<Plotcylvshwy, fig=TRUE>>=
+ggplot(mpg, aes(x=cyl, y=hwy, color=manufacturer)) + 
+  geom_point()
+@
+
+Lower cylinders leads to more highway miles per gallon for all manufacturer:
+<<Plotcylvshwy, fig=TRUE>>=
+ggplot(mpg, aes(x=manufacturer, y=hwy, color=cyl)) + 
+  geom_point()
+@
+
+\end{document}
